@@ -1,3 +1,5 @@
+require 'tty-box'
+
 module Ror
 
   UI_FRAME_HORIZONTAL = "\u2501"
@@ -14,7 +16,7 @@ module Ror
   
     
   class UI
-    
+
     # Clear the screen
     def clear
       print "
@@ -71,25 +73,33 @@ module Ror
     # Display welcome
     def welcome
       new_line
+      new_line
        # TTY Box method
-      box = TTY::Box.frame "The Ranger Of Redoc" 
-      # text = Array.new
-      box << "The Ranger Of Redoc"
-      # text << "The Ranger Of Redoc".light_red
-      # text << "Written by Alastair Blackwood ".white
-      # draw_frame({:text => text})
+      box = TTY::Box.frame "The Ranger Of Redoc".light_green, "by Alastair Blackwood"
+      print box
       new_line
       new_line
     end
     
-    # Prints a new line. Optinally can print multiple lines.
+    # Prints a new line. Optimally can print multiple lines.
     def new_line(times = 1)
       times.times do
         print "\n"
     end
 
   end
-    
+
+    # def box_frame(args)
+    #   text = args[:text]
+    #   text.each do |t|
+    #     if t.kind_of?(Array)
+    #       t.each do |s|
+    #         print TTY::Box.frame()
+    #       end
+    #     end
+    #   end
+    # end
+
     # Draw text surrounded in a nice frame
     def draw_frame(args)
     # Figure out width automatically
@@ -114,22 +124,6 @@ module Ror
       end
       draw_bottom_frame(width)
     end
-
-    # def begin(args)
-    #   story = args[:story]
-    #   new_line
-    #   text = story.STORY_AREA_SOUTH
-    #   draw_frame(:text => text)
-    #   new_line
-    # end
-
-    # def start(args)
-    #   story = args[:story]
-    #   new_line
-    #   text = story.STORY_AREA_SOUTH
-    #   draw_frame(:text => text)
-    #   new_line
-    # end
       
     def not_found
       print "Command not understood. Please try again.".red

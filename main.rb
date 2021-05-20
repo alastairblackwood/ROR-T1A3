@@ -21,8 +21,8 @@ player = Ror::Hero.new({:name => name})
 # Show intro story
 nav.new_line
 story = Ror::Story.new
-box = TTY::Box.frame({:text => story.intro})
-# nav.draw_frame
+nav.draw_frame({:text => story.intro})
+
 
 # MAIN INPUT LOOP
 running = 1
