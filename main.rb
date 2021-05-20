@@ -1,14 +1,12 @@
 require 'colorize'
 require 'tty-box'
 require_relative '../ROR-T1W8/lib/nav.rb'
-require_relative '../ROR-T1W8/lib/world.rb'
 require_relative '../ROR-T1W8/lib/story.rb'
 require_relative '../ROR-T1W8/lib/hero.rb'
 require_relative '../ROR-T1W8/lib/enemy.rb'
 
-# Create a new UI and world
+# Create a new UI
 nav = Ror::UI.new
-world = Ror::World.new
 
 # Clear the screen and print welcome message
 nav.clear
@@ -18,12 +16,13 @@ nav.welcome
 name = nav.ask("What is your name?", /\w/)
 
 # Create a new player
-player = Ror::Hero.new({:name => name, :world => world})
+player = Ror::Hero.new({:name => name})
 
 # Show intro story
 nav.new_line
 story = Ror::Story.new
-nav.draw_frame({:text => story.intro})
+box = TTY::Box.frame({:text => story.intro})
+# nav.draw_frame
 
 # MAIN INPUT LOOP
 running = 1

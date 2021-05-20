@@ -71,8 +71,10 @@ module Ror
     # Display welcome
     def welcome
       new_line
-      print TTY::Box.frame "The Ranger Of Redoc - written by Alastair Blackwood".
-      text = Array.new
+       # TTY Box method
+      box = TTY::Box.frame "The Ranger Of Redoc" 
+      # text = Array.new
+      box << "The Ranger Of Redoc"
       # text << "The Ranger Of Redoc".light_red
       # text << "Written by Alastair Blackwood ".white
       # draw_frame({:text => text})
