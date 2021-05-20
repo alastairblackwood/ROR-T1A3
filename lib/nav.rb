@@ -1,19 +1,3 @@
-#!/usr/bin/env ruby
-#
-# The Ranger Of Redoc
-# By Alastair Blackwood
-# UI Class
-#
-
-# require "tty-prompt"
-# prompt = TTY::Prompt.new
-# require_relative '../T1W8/lib/ui.rb'
-# require_relative '../T1W8/lib/world.rb'
-# require_relative '../T1W8/lib/story.rb'
-# require_relative '../T1W8/lib/hero.rb'
-# require_relative '../T1W8/lib/enemy.rb'
-
-
 module Ror
 
   UI_FRAME_HORIZONTAL = "\u2501"
@@ -26,12 +10,16 @@ module Ror
   UI_COPYRIGHT = "\u00A9"
   UI_EMAIL = "\u2709"
   UI_ARROW = "\u2712"
+
+  
     
   class UI
     
     # Clear the screen
     def clear
-      print "\e[H\e[2J"
+      print "
+      ▀█▀ █░█ █▀▀   █▀█ ▄▀█ █▄░█ █▀▀ █▀▀ █▀█   █▀█ █▀▀   █▀█ █▀▀ █▀▄ █▀█ █▀▀
+      ░█░ █▀█ ██▄   █▀▄ █▀█ █░▀█ █▄█ ██▄ █▀▄   █▄█ █▀░   █▀▄ ██▄ █▄▀ █▄█ █▄▄".light_red
     end
     
     def help
@@ -82,10 +70,13 @@ module Ror
       
     # Display welcome
     def welcome
+      new_line
+      print TTY::Box.frame "The Ranger Of Redoc - written by Alastair Blackwood".
       text = Array.new
-      text << "The Ranger Of Redoc".light_green
-      text << "Written by Alastair Blackwood ".white
-      draw_frame({:text => text})
+      # text << "The Ranger Of Redoc".light_red
+      # text << "Written by Alastair Blackwood ".white
+      # draw_frame({:text => text})
+      new_line
       new_line
     end
     
@@ -122,21 +113,21 @@ module Ror
       draw_bottom_frame(width)
     end
 
-    def begin(args)
-      story = args[:story]
-      new_line
-      text = story.STORY_AREA_SOUTH
-      draw_frame(:text => text)
-      new_line
-    end
+    # def begin(args)
+    #   story = args[:story]
+    #   new_line
+    #   text = story.STORY_AREA_SOUTH
+    #   draw_frame(:text => text)
+    #   new_line
+    # end
 
-    def start(args)
-      story = args[:story]
-      new_line
-      text = story.STORY_AREA_SOUTH
-      draw_frame(:text => text)
-      new_line
-    end
+    # def start(args)
+    #   story = args[:story]
+    #   new_line
+    #   text = story.STORY_AREA_SOUTH
+    #   draw_frame(:text => text)
+    #   new_line
+    # end
       
     def not_found
       print "Command not understood. Please try again.".red

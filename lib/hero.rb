@@ -32,12 +32,12 @@ module Ror
   def attack(args)
     player = self
     enemy = args[:enemy]
-    ui = args[:ui]
+    nav = args[:nav]
     
   # Does the player even hit the enemy?
   # Hit chance player/enemy stength discrepency.
-    ui.enemy_info({:player => player})
-    ui.player_info({:player => player})
+    nav.enemy_info({:player => player})
+    nav.player_info({:player => player})
     str_diff = (player.str - enemy.str) * 2
     hit_chance = rand(1...100) + str_diff + HIT_CHANCE_MODIFIER
     
@@ -61,7 +61,7 @@ module Ror
   def move(args)
     direction = args[:direction]
     world = args[:world]
-    ui = args[:ui]
+    nav = args[:ui]
     story = args[:story]
     case direction
     when :up
@@ -77,7 +77,7 @@ module Ror
     end
     case direction
     when :right
-      story.area_enemy
+      story.area_east
     end
   end
         

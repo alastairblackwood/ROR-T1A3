@@ -16,24 +16,24 @@ module Ror
       end
     end
         
-    # Check the current area on the map and describe it
-    def check_area(args)
-      player = args[:player]
-      ui = args[:ui]
-      story = args[:story]
-    case current_area
-    when MAP_KEY_SOUTH
-      ui.draw_frame({:text => story.area_south})
-    when MAP_KEY_WEST
-      ui.draw_frame({:text => story.area_west})
-    when MAP_KEY_NORTH
-      ui.draw_frame({:text => story.area_north})
-    when MAP_KEY_EAST
-      ui.draw_frame({:text => story.area_enemy})
-      return false
-    end
-    return true
+  #   # Check the current area on the map and describe it
+  #   def check_area(args)
+  #     player = args[:player]
+  #     ui = args[:ui]
+  #     story = args[:story]
+  #   case current_area
+  #   when MAP_KEY_SOUTH
+  #     nav.draw_frame({:text => story.area_south})
+  #   when MAP_KEY_WEST
+  #     nav.draw_frame({:text => story.area_west})
+  #   when MAP_KEY_NORTH
+  #     nav.draw_frame({:text => story.area_north})
+  #   when MAP_KEY_EAST
+  #     nav.draw_frame({:text => story.area_enemy})
+  #     return false
+  #   end
+  #   return true
+  # end
   end
-end
 
 end

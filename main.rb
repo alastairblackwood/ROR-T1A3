@@ -1,9 +1,11 @@
 require 'colorize'
-require_relative '../T1W8/lib/nav.rb'
-require_relative '../T1W8/lib/world.rb'
-require_relative '../T1W8/lib/story.rb'
-require_relative '../T1W8/lib/hero.rb'
-require_relative '../T1W8/lib/enemy.rb'
+require 'tty-box'
+require_relative '../ROR-T1W8/lib/nav.rb'
+require_relative '../ROR-T1W8/lib/world.rb'
+require_relative '../ROR-T1W8/lib/story.rb'
+require_relative '../ROR-T1W8/lib/hero.rb'
+require_relative '../ROR-T1W8/lib/enemy.rb'
+
 # Create a new UI and world
 nav = Ror::UI.new
 world = Ror::World.new
@@ -50,6 +52,29 @@ while running
       nav.draw_frame({:text => story.area_east})
     when "right", "east", "r", "e"
       nav.new_line
+      puts "                                             ,--,  ,.-.
+               ,                   \,       '-,-`,'-.' | ._
+              /|           \    ,   |\         }  )/  / `-,',
+              [ ,          |\  /|   | |        /  \|  |/`  ,`
+              | |       ,.`  `,` `, | |  _,...(   (      .',
+              \  \  __ ,-` `  ,  , `/ |,'      Y     (   /_L\
+               \  \_\,``,   ` , ,  /  |         )         _,/
+                \  '  `  ,_ _`_,-,<._.<        /         /
+                 ', `>.,`  `  `   ,., |_      |         /
+                   \/`  `,   `   ,`  | /__,.-`    _,   `\
+               -,-..\  _  \  `  /  ,  / `._) _,-\`       \
+                \_,,.) /\    ` /  / ) (-,, ``    ,        |
+               ,` )  | \_\       '-`  |  `(               \
+              /  /```(   , --, ,' \   |`<`    ,            |
+             /  /_,--`\   <\  V /> ,` )<_/)  | \      _____)
+       ,-, ,`   `   (_,\ \    |   /) / __/  /   `----`
+      (-, \           ) \ ('_.-._)/ /,`    /
+      | /  `          `/ \\ V   V, /`     /
+   ,--\(        ,     <_/`\\     ||      /
+  (   ,``-     \/|         \-A.A-`|     /
+ ,>,_ )_,..(    )\          -,,_-`  _--`
+(_ \|`   _,/_  /  \_            ,--`
+ \( `   <.,../`     `-.._   _,-`"
       story = Ror::Story.new
       nav.draw_frame({:text => story.area_east})
       unless player.in_combat
@@ -63,7 +88,8 @@ while running
       if player.in_combat
         retval = player.attack({:enemy => player.current_enemy, :nav => nav})
 	      if retval == Ror::ENEMY_KILLED
-          player.lines += player.current_enemy.lines
+          story = Ror::Story.new
+          nav.draw_frame({:text => story.story_end})
           # Take player out of combat
           player.current_enemy = nil
 	        player.in_combat = false
