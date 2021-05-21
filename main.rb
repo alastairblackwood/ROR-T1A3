@@ -48,7 +48,13 @@ while running
     when "left", "west", "l", "w"
       nav.new_line
       story = Ror::Story.new
-      nav.draw_frame({:text => story.area_east})
+      nav.draw_frame({:text => story.area_west})
+      nav.new_line
+      nav.draw_frame({:text => story.player_dead})
+      if story.player_dead
+        nav.clear
+        nav.welcome
+      end
     when "right", "east", "r", "e"
       nav.new_line
       puts "                                             ,--,  ,.-.
@@ -77,7 +83,7 @@ while running
       story = Ror::Story.new
       nav.draw_frame({:text => story.area_east})
       unless player.in_combat
-        if !player.move({:direction => :right, :world => world, :nav => nav, :story => story})
+        if !player.move({:direction => :right, :nav => nav, :story => story})
           player.in_combat = 1
 	      end
       else

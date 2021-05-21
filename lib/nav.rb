@@ -168,6 +168,14 @@ module Ror
       draw_frame(:text => text)
       new_line
     end
+
+    def player_dead_west(args)
+      story = args[:story]
+      new_line
+      text = story.player_dead_west
+      draw_frame(:text => text)
+      new_line
+    end
     
     def enemy_greet(args)
       enemy = args[:enemy]
