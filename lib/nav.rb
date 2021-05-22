@@ -1,5 +1,5 @@
 require 'tty-box'
-
+require 'tty-prompt'
 module Ror
 
   UI_FRAME_HORIZONTAL = "\u2501"
@@ -145,20 +145,10 @@ module Ror
     end
       
     def get_cmd
+      prompt = TTY::Prompt.new
       print "Type ".white + "help".light_white + " for possible commands.\n"
         print "\u2712 ".red + "Your command? ".light_white
-      return gets.chomp.downcase
-    end
-        
-    def out_of_bounds
-      print "x".red + " Requested move out of bounds."
-      new_line
-    end
-      
-    def display_name(args)
-      player = args[:player]
-      print "You are " + player.name.light_white + ". Have you forgotten your own name?"
-      new_line    
+      return prompt.select("Commands?", %w(help north south west east attack quit))
     end
       
     def player_dead(args)
@@ -186,28 +176,28 @@ module Ror
     private
       
     def draw_vert_frame_begin
-      print UI_FRAME_VERTICAL.yellow + " "
+      print UI_FRAME_VERTICAL.light_green + " "
     end
     
     def draw_vert_frame_end
-      print " " + UI_FRAME_VERTICAL.yellow
+      print " " + UI_FRAME_VERTICAL.light_green
     end
       
     def draw_top_frame(width)
-      print UI_FRAME_UPPER_LEFT.yellow
+      print UI_FRAME_UPPER_LEFT.light_green
       (width - 2).times do
-        print UI_FRAME_HORIZONTAL.yellow
+        print UI_FRAME_HORIZONTAL.light_green
     end
-      print UI_FRAME_UPPER_RIGHT.yellow
+      print UI_FRAME_UPPER_RIGHT.light_green
       new_line
     end
     
     def draw_bottom_frame(width)
-      print UI_FRAME_LOWER_LEFT.yellow
+      print UI_FRAME_LOWER_LEFT.light_green
       (width - 2).times do
-        print UI_FRAME_HORIZONTAL.yellow
+        print UI_FRAME_HORIZONTAL.light_green
       end
-      print UI_FRAME_LOWER_RIGHT.yellow
+      print UI_FRAME_LOWER_RIGHT.light_green
       new_line
     end
     
