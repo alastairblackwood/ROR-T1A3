@@ -1,5 +1,7 @@
 require 'colorize'
 require 'tty-box'
+require 'tco'
+require 'rmagick'
 require_relative '../ROR-T1W8/lib/nav.rb'
 require_relative '../ROR-T1W8/lib/story.rb'
 require_relative '../ROR-T1W8/lib/hero.rb'
@@ -112,18 +114,12 @@ while running
     else
       nav.not_in_combat
     end
-    when "player", "me", "info", "status", "i"
-      nav.player_info({:player => player})
     when "enemy"
       if player.in_combat
         nav.enemy_info({:player => player})
       else
         nav.not_in_combat
       end
-    when "lines", "score"
-      nav.lines({:player => player})
-    when "suicide"
-      player.dead = 1
     when "help", "h", "?"
       nav.help
     when "quit", "exit"

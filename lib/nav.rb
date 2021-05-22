@@ -24,6 +24,7 @@ module Ror
       ░█░ █▀█ ██▄   █▀▄ █▀█ █░▀█ █▄█ ██▄ █▀▄   █▄█ █▀░   █▀▄ ██▄ █▄▀ █▄█ █▄▄".light_red
     end
     
+    # Navigation commands
     def help
       new_line
         print "Valid Commands".light_green
@@ -150,7 +151,7 @@ module Ror
         print "\u2712 ".red + "Your command? ".light_white
       return prompt.select("Commands?", %w(help north south west east attack quit))
     end
-      
+
     def player_dead(args)
       story = args[:story]
       new_line

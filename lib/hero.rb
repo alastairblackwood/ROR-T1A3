@@ -30,6 +30,8 @@ module Ror
     
   # Player attacks enemy
   def attack(args)
+    story = Ror::Story.new
+    nav.draw_frame({:text => story.end})
     player = self
     enemy = args[:enemy]
     nav = args[:nav]
