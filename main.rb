@@ -2,8 +2,10 @@ require 'colorize'
 require 'tty-box'
 require 'tco'
 require 'rmagick'
+require 'pry'
 require_relative '../ROR-T1W8/lib/nav.rb'
 require_relative '../ROR-T1W8/lib/story.rb'
+require_relative '../ROR-T1W8/lib/anim.rb'
 
 # Create a new UI
 nav = Ror::UI.new
@@ -18,7 +20,7 @@ name = nav.ask("What is your name?", /\w/)
 # Show intro story
 nav.new_line
 story = Ror::Story.new
-nav.draw_frame({:text => story.intro})
+puts anim(story.intro)
 
 
 # MAIN INPUT LOOP
@@ -29,6 +31,7 @@ while running
   cmd = nav.get_cmd
   case cmd
     when "~"
+      # ruby gem 'pry' invoked for debugging 
       binding.pry
     when "clear", "cls"
       nav.clear
@@ -37,17 +40,17 @@ while running
     when "up", "north", "u", "n"
       nav.new_line
       story = Ror::Story.new
-      nav.draw_frame({:text => story.area_north})
+      puts anim(story.area_north)
     when "down", "south", "d", "s"
       nav.new_line
       story = Ror::Story.new
-      nav.draw_frame({:text => story.area_south})
+      puts anim(story.area_south)
     when "left", "west", "l", "w"
       nav.new_line
       story = Ror::Story.new
-      nav.draw_frame({:text => story.area_west})
+      puts anim(story.area_west)
       nav.new_line
-      nav.draw_frame({:text => story.player_dead})
+      puts anim(story.player_dead)
       if story.player_dead
         nav.clear
         nav.welcome
@@ -78,18 +81,17 @@ while running
 (_ \|`   _,/_  /  \_            ,--`
  \( `   <.,../`     `-.._   _,-`"
       story = Ror::Story.new
-      nav.draw_frame({:text => story.area_east})
+      puts anim(story.area_east)
     when "attack"
       nav.new_line
       story = Ror::Story.new
-      nav.draw_frame({:text => story.ending})
+      puts anim(story.ending)
       nav.new_line
     when
       "help", "h", "?"
       nav.help
     when "quit", "exit"
       nav.quit
-      running = new_line
     else
       nav.not_found
     end

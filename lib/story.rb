@@ -3,9 +3,11 @@ module Ror
 STORY_INTRO = [
   "You have travelled many months across the trecherous" + " " + "Land of Redoc".light_white + ". 
   You have fought and defeated many monsters and escaped traps 
-  and dangers that sought to destroy you. You are weary and have lost much.
-  But you cannot turn back now!".light_white + ". The final stage of your 
-  journey is finally upon you. You enter the Forbidden Forest Of Ybur.",
+  and dangers that sought to destroy you. You are weary and have lost much.",
+  "",
+  "But you cannot turn back now!".light_red,
+  "",
+  "The final stage of your journey is finally upon you. You enter the Forbidden Forest Of Ybur.",
   "",
   "The foul beast that has beseiged Redoc is awaiting you. You MUST defeat it! 
   Failure will spell doom for the land and people 
@@ -32,7 +34,7 @@ STORY_AREA_WEST = [
 ]
     
 STORY_AREA_NORTH = [
-  "You make your way North and emerge out of the Forest Of Ybur. 
+  "You make your way North - leaving the Forest Of Ybur. 
   The snow-capped mountain-range of your homeland can be seen in 
   the distance. But you cannot return there yet. You must destroy 
   the monster that has brought so much evil and desruction to the land. 
@@ -42,7 +44,8 @@ STORY_AREA_NORTH = [
 STORY_AREA_EAST = [
   "THE BEAST IS UPON YOU!!!!!! The monstrous creature
   has malice in his eyes and lunges towards you - trying to strike
-  a fatal blow...".light_red
+  a fatal blow...".light_red,
+  "",
 ]
     
 STORY_PLAYER_DEAD = [
@@ -54,8 +57,9 @@ STORY_PLAYER_DEAD = [
     
 STORY_ENDING = [
   "You plunge your sword deep into the heart of the beast. 
-  It gives a terrible roar before it crashes to the ground and dies. 
-  You have defeated the monster!".light_white,
+  It gives a terrible roar before it crashes to the ground and dies.".light_white,
+  "",
+  "You have defeated the monster!".light_green,
   "",
   "The evil that has plagued The Land Of Redoc for so long has been removed. 
   The healing of Redoc and it's people can begin",
@@ -69,7 +73,8 @@ STORY_ENDING = [
   "THANK YOU FOR PLAYING!".light_green,
   "",
 ]
-    
+
+# Returning methods into main.rb
 class Story
     
   def intro

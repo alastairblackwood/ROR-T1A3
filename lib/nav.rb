@@ -143,6 +143,10 @@ module Ror
       new_line
         print "You abandoned your journey.".red
       new_line(2)
+      clear
+      new_line
+      welcome
+      new_line
     end
       
     def get_cmd
@@ -167,7 +171,7 @@ module Ror
       draw_frame(:text => text)
       new_line
     end
-    
+
     private
       
     def draw_vert_frame_begin
@@ -212,7 +216,7 @@ module Ror
       s_size = get_real_size(s)
       max = s_size if s_size >= max
       end
-      max + 4
+      max + 2
     end
     
 end
