@@ -25,7 +25,10 @@ STORY_AREA_WEST = [
   the stars has all but been extinguished down this path 
   and you cannot see where you are going. Suddenly you step into an empty 
   void and find yourself plummenting down into a deep ravine. 
-  You hit the bottom...You are dead."
+  You hit the bottom...", 
+  "",
+  "You are dead!".light_red,
+  "",
 ]
     
 STORY_AREA_NORTH = [
@@ -49,7 +52,7 @@ STORY_PLAYER_DEAD = [
   Please try again.",
 ]
     
-STORY_END = [
+STORY_ENDING = [
   "You plunge your sword deep into the heart of the beast. 
   It gives a terrible roar before it crashes to the ground and dies. 
   You have defeated the monster!".light_white,
@@ -74,7 +77,7 @@ class Story
   end
     
   def ending
-    return STORY_END
+    return STORY_ENDING
   end
     
   def area_south

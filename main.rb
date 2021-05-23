@@ -4,8 +4,6 @@ require 'tco'
 require 'rmagick'
 require_relative '../ROR-T1W8/lib/nav.rb'
 require_relative '../ROR-T1W8/lib/story.rb'
-require_relative '../ROR-T1W8/lib/hero.rb'
-require_relative '../ROR-T1W8/lib/enemy.rb'
 
 # Create a new UI
 nav = Ror::UI.new
@@ -16,9 +14,6 @@ nav.welcome
 
 # Ask name
 name = nav.ask("What is your name?", /\w/)
-
-# Create a new player
-player = Ror::Hero.new({:name => name})
 
 # Show intro story
 nav.new_line
@@ -84,65 +79,18 @@ while running
  \( `   <.,../`     `-.._   _,-`"
       story = Ror::Story.new
       nav.draw_frame({:text => story.area_east})
-      unless player.in_combat
-        if !player.move({:direction => :right, :nav => nav, :story => story})
-          player.in_combat = 1
-	      end
-      else
-        nav.cannot_travel_combat
-      end
-    when "attack", "a"
-      if player.in_combat
-        retval = player.attack({:enemy => player.current_enemy, :nav => nav})
-	      if retval == Ror::ENEMY_KILLED
-          story = Ror::Story.new
-          nav.draw_frame({:text => story.story_end})
-          # Take player out of combat
-          player.current_enemy = nil
-	        player.in_combat = false
-	      end
-	      if retval.is_a? Numeric
-          player.current_enemy.health -= retval
-	        retval = player.current_enemy.attack({:player => player})
-	        if retval.is_a? Numeric
-            player.health -= retval
-          end
-	      if retval == Ror::PLAYER_DEAD
-          player.dead = 1
-	      end
-	    end
-    else
-      nav.not_in_combat
-    end
-    when "enemy"
-      if player.in_combat
-        nav.enemy_info({:player => player})
-      else
-        nav.not_in_combat
-      end
-    when "help", "h", "?"
+    when "attack"
+      nav.new_line
+      story = Ror::Story.new
+      nav.draw_frame({:text => story.ending})
+      nav.new_line
+    when
+      "help", "h", "?"
       nav.help
     when "quit", "exit"
       nav.quit
-      running = nil
+      running = new_line
     else
       nav.not_found
+    end
   end
-  # Is player in combat but has no enemy? Assign one.
-  if player.in_combat && !player.current_enemy
-    enemy = Ror::Enemy.new
-    player.current_enemy = enemy
-    nav.enemy_greet({:enemy => enemy})
-  end
-  # Player is dead!
-  if player.dead == 1
-      nav.player_dead({:story => story.PLAYER_DEAD})
-    exit
-  end
-  # If player has reached Sourcerer
-  if player == Ror::ENEMY_KILLED
-    nav.draw_frame({:text => story.ending})
-    nav.new_line
-    running = false
-  end
-end

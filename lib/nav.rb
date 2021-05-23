@@ -168,12 +168,6 @@ module Ror
       new_line
     end
     
-    def enemy_greet(args)
-      enemy = args[:enemy]
-      print enemy.name.light_white + " attacks!"
-      new_line
-    end
-    
     private
       
     def draw_vert_frame_begin
