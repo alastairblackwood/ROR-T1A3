@@ -1,8 +1,9 @@
 require 'colorize'
 require 'tty-box'
 require 'tco'
-require 'rmagick'
+require 'asciiart'
 require 'pry'
+
 require_relative '../ROR-T1W8/lib/nav.rb'
 require_relative '../ROR-T1W8/lib/story.rb'
 require_relative '../ROR-T1W8/lib/anim.rb'
@@ -92,6 +93,7 @@ while running
       nav.help
     when "quit", "exit"
       nav.quit
+      running = nil
     else
       nav.not_found
     end
