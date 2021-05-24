@@ -6,7 +6,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 # gem "rails"
 
-gem "colorize", "~> 0.8.1"
+
 gem "tty-prompt", "~> 0.23.1"
 gem 'rspec', '~> 3.10'
 gem 'rdoc', '~> 6.3', '>= 6.3.1'
@@ -19,4 +19,5 @@ gem 'json', '~> 2.5', '>= 2.5.1'
 gem 'tco', '~> 0.1.8'
 gem 'tty-font', '~> 0.5.0'
 gem 'asciiart', '~> 0.0.10'
-gem 'rainbow', '~> 2.0.0'
+gem "colorize", "~> 0.8.1"
+gem 'rainbow', '2.0.0'

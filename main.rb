@@ -1,12 +1,17 @@
-require 'colorize'
 require 'tty-box'
 require 'tco'
 require 'asciiart'
 require 'pry'
+require 'rainbow'
+
+# Rainbow.enabled = true
 
 require_relative '../ROR-T1W8/lib/nav.rb'
 require_relative '../ROR-T1W8/lib/story.rb'
 require_relative '../ROR-T1W8/lib/anim.rb'
+require_relative '../ROR-T1W8/lib/asciiart.rb'
+
+
 
 # Create a new UI
 nav = Ror::UI.new
@@ -16,13 +21,13 @@ nav.clear
 nav.welcome
 
 # Ask name
-name = nav.ask("What is your name?", /\w/)
+name = nav.ask("What is your name?")
 
 # Show intro story
 nav.new_line
 story = Ror::Story.new
-puts anim(story.intro)
-
+# puts anim(story.intro)
+puts story.intro
 
 # MAIN INPUT LOOP
 running = 1
