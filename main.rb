@@ -26,8 +26,8 @@ name = nav.ask("What is your name?")
 # Show intro story
 nav.new_line
 story = Ror::Story.new
-# puts anim(story.intro)
-puts story.intro
+puts anim(story.intro)
+# puts story.intro
 
 # MAIN INPUT LOOP
 running = 1
@@ -57,42 +57,23 @@ while running
       puts anim(story.area_west)
       nav.new_line
       puts anim(story.player_dead)
-      if story.player_dead
-        nav.clear
-        nav.welcome
-      end
+      nav.new_line
+      nav.clear
+      nav.welcome
+      story = Ror::Story.new
+      puts anim(story.intro)
     when "right", "east", "r", "e"
       nav.new_line
-      puts "                                             ,--,  ,.-.
-               ,                   \,       '-,-`,'-.' | ._
-              /|           \    ,   |\         }  )/  / `-,',
-              [ ,          |\  /|   | |        /  \|  |/`  ,`
-              | |       ,.`  `,` `, | |  _,...(   (      .',
-              \  \  __ ,-` `  ,  , `/ |,'      Y     (   /_L\
-               \  \_\,``,   ` , ,  /  |         )         _,/
-                \  '  `  ,_ _`_,-,<._.<        /         /
-                 ', `>.,`  `  `   ,., |_      |         /
-                   \/`  `,   `   ,`  | /__,.-`    _,   `\
-               -,-..\  _  \  `  /  ,  / `._) _,-\`       \
-                \_,,.) /\    ` /  / ) (-,, ``    ,        |
-               ,` )  | \_\       '-`  |  `(               \
-              /  /```(   , --, ,' \   |`<`    ,            |
-             /  /_,--`\   <\  V /> ,` )<_/)  | \      _____)
-       ,-, ,`   `   (_,\ \    |   /) / __/  /   `----`
-      (-, \           ) \ ('_.-._)/ /,`    /
-      | /  `          `/ \\ V   V, /`     /
-   ,--\(        ,     <_/`\\     ||      /
-  (   ,``-     \/|         \-A.A-`|     /
- ,>,_ )_,..(    )\          -,,_-`  _--`
-(_ \|`   _,/_  /  \_            ,--`
- \( `   <.,../`     `-.._   _,-`"
+      nav.monster
       story = Ror::Story.new
       puts anim(story.area_east)
     when "attack"
       nav.new_line
       story = Ror::Story.new
       puts anim(story.ending)
+      nav.end
       nav.new_line
+      running = nil
     when
       "help", "h", "?"
       nav.help

@@ -1,8 +1,10 @@
+require 'asciiart'
+
 class AsciiArt
 
     def mountain
-        mountain = AsciiArt.new("/img/mountain.jpg")
-        puts mountain.to_ascii_art
+        mountain = AsciiArt.new("/ascii/ascii_mountain.txt")
+        puts mountain(width: 30)
     end
 
 end
