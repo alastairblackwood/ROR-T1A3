@@ -21,3 +21,4 @@ gem 'tty-font', '~> 0.5.0'
 gem 'asciiart', '~> 0.0.10'
 gem "colorize", "~> 0.8.1"
 gem 'rainbow', '2.0.0'
+gem 'tty-font'

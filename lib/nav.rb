@@ -1,5 +1,6 @@
 require 'tty-box'
 require 'tty-prompt'
+require 'tty-font'
 module Ror
     
   UI_COPYRIGHT = "\u00A9"
@@ -16,6 +17,7 @@ module Ror
       ▀█▀ █░█ █▀▀   █▀█ ▄▀█ █▄░█ █▀▀ █▀▀ █▀█   █▀█ █▀▀   █▀█ █▀▀ █▀▄ █▀█ █▀▀
       ░█░ █▀█ ██▄   █▀▄ █▀█ █░▀█ █▄█ ██▄ █▀▄   █▄█ █▀░   █▀▄ ██▄ █▄▀ █▄█ █▄▄".light_red
     end
+
     
     # Navigation commands
     def help
@@ -92,32 +94,6 @@ module Ror
       puts "You are not in combat."
     end
 
-    def monster
-      puts "                      ,--,  ,.-.
-      ,                  \,       '-,-`,'-.' | ._
-     /|           \    ,   |\         }  )/  / `-,',
-     [ ,          |\  /|   | |        /  \|  |/`  ,`
-     | |       ,.`  `,` `, | |  _,...(   (      .',
-     \  \  __ ,-` `  ,  , `/ |,'      Y     (   /_L\
-      \  \_\,``,   ` , ,  /  |         )         _,/
-       \  '  `  ,_ _`_,-,<._.<        /       /
-        ', `>.,`  `  `   ,., |_      |       /
-          \/`  `,   `   ,`  | /__,.-`    _, `\
-     -,-..\  _  \  `  /  ,  / `._) _,-\`      \
-      \_,,.) /\    ` /  / ) (-,, ``    ,      |
-      ,` )  | \_\       '-`  |  `(             \
-     /  /```(   , --, ,' \   |`<`    ,         |
-    /  /_,--`\   <\  V /> ,` )<_/)  | \    ___)
-,-, ,`   `   (_,\ \    |   /) / __/  /   `----`
-(-, \        ) \ ('_.-._)/ /,`    /
-| /  `        `/ \\ V   V, /`     /
-,--\(        <_/`\\     ||      /
-(   ,``-     \/|  \-A.A-`|     /
-,>,_ )_,..(    )\   -,,_-`  _--`
-(_ \|`   _,/_  /  \_            ,--`
-\( `   <.,../`     `-.._   _,-` ".light_red
-    end
-
     def end
       new_line
       print "
@@ -125,6 +101,7 @@ module Ror
       ░█░ █▀█ ██▄   ██▄ █░▀█ █▄▀".light_yellow
     end
     
+    # Quit method
     def quit
       new_line
         print "You abandoned your journey.".red
@@ -135,27 +112,12 @@ module Ror
       new_line
     end
       
+    # TTY prompt method
     def get_cmd
       prompt = TTY::Prompt.new
       print "Type ".white + "help".light_white + " for possible commands.\n"
         print "\u2712 ".red + "Your command? ".light_white
       return prompt.select("Commands?", %w(help north south west east attack quit))
-    end
-
-    def player_dead(args)
-      story = args[:story]
-      new_line
-      text = story.player_dead
-      draw_frame(:text => text)
-      new_line
-    end
-
-    def player_dead_west(args)
-      story = args[:story]
-      new_line
-      text = story.player_dead_west
-      draw_frame(:text => text)
-      new_line
     end
     
 end

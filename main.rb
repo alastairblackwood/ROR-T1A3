@@ -1,24 +1,30 @@
 require 'tty-box'
 require 'tco'
-require 'asciiart'
+require 'tty-prompt'
 require 'pry'
 require 'rainbow'
+require 'tty-font'
 
 # Rainbow.enabled = true
 
-require_relative '../ROR-T1W8/lib/nav.rb'
-require_relative '../ROR-T1W8/lib/story.rb'
-require_relative '../ROR-T1W8/lib/anim.rb'
-require_relative '../ROR-T1W8/lib/asciiart.rb'
-
+require_relative '../ROR-T1A3/lib/nav.rb'
+require_relative '../ROR-T1A3/lib/story.rb'
+require_relative '../ROR-T1A3/lib/anim.rb'
+require_relative '../ROR-T1A3/lib/ascii.rb'
+# require_relative '../ROR-T1A3/lib/asciimtn.rb'
 
 
 # Create a new UI
 nav = Ror::UI.new
 
+puts mountain
+puts monster
+
+
 # Clear the screen and print welcome message
 nav.clear
 nav.welcome
+# nav.title
 
 # Ask name
 name = nav.ask("What is your name?")
@@ -64,7 +70,7 @@ while running
       puts anim(story.intro)
     when "right", "east", "r", "e"
       nav.new_line
-      nav.monster
+      monster
       story = Ror::Story.new
       puts anim(story.area_east)
     when "attack"
