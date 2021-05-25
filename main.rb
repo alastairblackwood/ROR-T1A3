@@ -1,9 +1,9 @@
 require 'tty-box'
-require 'tco'
 require 'tty-prompt'
 require 'pry'
 require 'rainbow'
 require 'tty-font'
+require 'pastel'
 
 # Rainbow.enabled = true
 
@@ -11,8 +11,6 @@ require_relative '../ROR-T1A3/lib/nav.rb'
 require_relative '../ROR-T1A3/lib/story.rb'
 require_relative '../ROR-T1A3/lib/anim.rb'
 require_relative '../ROR-T1A3/lib/ascii.rb'
-# require_relative '../ROR-T1A3/lib/asciimtn.rb'
-
 
 # Create a new UI
 nav = Ror::UI.new
@@ -20,7 +18,6 @@ nav = Ror::UI.new
 # Clear the screen and print welcome message
 nav.clear
 nav.welcome
-# nav.title
 
 # Ask name
 name = nav.ask("What is your name?")
@@ -75,7 +72,7 @@ while running
       nav.new_line
       story = Ror::Story.new
       puts anim(story.ending)
-      nav.end
+      nav.ending
       nav.new_line
       running = nil
     when

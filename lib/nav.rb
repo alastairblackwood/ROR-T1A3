@@ -1,6 +1,8 @@
 require 'tty-box'
 require 'tty-prompt'
 require 'tty-font'
+require 'pastel'
+
 module Ror
     
   UI_COPYRIGHT = "\u00A9"
@@ -92,6 +94,12 @@ module Ror
     
     def not_in_combat
       puts "You are not in combat."
+    end
+
+    def ending
+      font = TTY::Font.new(:doom)
+      pastel = Pastel.new
+      puts pastel.yellow(font.write("THE END"))
     end
 
     def end
