@@ -17,10 +17,6 @@ require_relative '../ROR-T1A3/lib/ascii.rb'
 # Create a new UI
 nav = Ror::UI.new
 
-puts mountain
-puts monster
-
-
 # Clear the screen and print welcome message
 nav.clear
 nav.welcome
@@ -51,10 +47,12 @@ while running
       nav.display_name({:player => player})    
     when "up", "north", "u", "n"
       nav.new_line
+      puts mountain
       story = Ror::Story.new
       puts anim(story.area_north)
     when "down", "south", "d", "s"
       nav.new_line
+      puts tree
       story = Ror::Story.new
       puts anim(story.area_south)
     when "left", "west", "l", "w"
@@ -70,7 +68,7 @@ while running
       puts anim(story.intro)
     when "right", "east", "r", "e"
       nav.new_line
-      monster
+      puts monster
       story = Ror::Story.new
       puts anim(story.area_east)
     when "attack"
