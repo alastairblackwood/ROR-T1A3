@@ -24,11 +24,11 @@ The target audience is for video gamers of a similar demographic to me (mid 30s 
 
 A member of the target audience will use it by downloading the programme and simply have fun playing it.
 
-# R6 Three Features (100 words each)
+# R6 Three Features
 
 ## Variables concept of variable scope
 
-structures
+The programme utilizes a UI class, which stores a multitude of methods within in it that get called upon in the main input loop. These include a help method that outputs the navigation commands to the user.
 
 The first feature of the game uses the variable concept
 
@@ -54,9 +54,11 @@ anim.rb is a typewriter animation effect that outputs the text from the story ar
 
 # R7 Outline Of the User Interaction and Experience for App
 
-- how the user will find out how to interact with / use each feature
-- how the user will interact with / use each feature
-- how errors will be handled by the application and displayed to the user
+I would like to add some documentation that explains the navigation commands, however, I have also included that within the programme itself when the user selects (TTY Prompt) or types 'help'.
+
+The commands are very minimal / simple so it would be very difficult to not interact with it easily. The user will probably take great interest in the story and want to explore the different outcomes depending on which direction they take until they have explored the world thoroughly and exhausted all the options.
+
+Errors will be handled by the application by
 
 # R8 Control Flow Diagram
 
@@ -66,10 +68,10 @@ anim.rb is a typewriter animation effect that outputs the text from the story ar
 
 ![Intro](img/trello.png)
 
+I chose to use Trello for the designing and planning stage of the application and set some deadlines for when I would like to to have a task completed by and to move on the next task.
+
 - prioritise the implementation of different features, or checklist items within a feature
 - provide a deadline, duration or other time indicator for each feature or checklist/checklist-item
-
-Utilise a suitable project management platform to track this implementation plan.
 
 > Your checklists for each feature should have at least 5 items.
 
@@ -86,7 +88,11 @@ Pry
 TTY Font
 Pastel
 
-Fork or clone this repository https://github.com/alastairblackwood/ROR-T1A3 down to your local computer.
+Fork or clone this repository:
+
+https://github.com/alastairblackwood/ROR-T1A3
+
+to your local computer.
 To install the gem(s) required, navigate to the location of the /src folder in repository on your computer, and use the command:
 
 bundle install
