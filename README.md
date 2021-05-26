@@ -18,7 +18,7 @@ The commands it offers are North, South, East, West, Attack and Quit. Selecting 
 
 ![Intro](img/north.png)
 
-Because the application is a game, there is no specific problem it will solve, other than boredom for the player, through providing a source of entertainment. The reason I chose to develop a game was purely from a place of nostalgia, to re-visit my childhood which was formed through playing text-based terminal application games like The Hobbit. I felt that it would a fun application to make and be a great motivator to see it through to the end.
+Because the application is a game, the problem the user has to solve is simply to reach the end of the game without dying. The reason I chose to develop a game was purely from a place of nostalgia, to re-visit my childhood which was formed through playing text-based terminal application games like The Hobbit. I felt that it would a fun application to make and be a great motivator to see it through to the end.
 
 The target audience is for video gamers of a similar demographic to me (mid 30s early 40s) who also grew up with text based video games and would enjoy the nostalgia of playing a new game that encompasses those elements.
 
@@ -28,7 +28,7 @@ A member of the target audience will use it by downloading the programme and sim
 
 ## Variables concept of variable scope
 
-The programme utilizes a UI class, which stores a multitude of methods within in it that get called upon in the main input loop. These include a help method that outputs the navigation commands to the user.
+The programme utilizes a UI class and a Story class which stores a multitude of methods within in each one that get called upon to either 'return' or 'puts' the content back in the main input loop. These include a help method that outputs the navigation commands to the user.
 
 The first feature of the game uses the variable concept
 
@@ -38,7 +38,7 @@ The game features an input loop which is the heart of the programme and runs fro
 
 ## Error handling
 
-I've included some error handling features for some of the methods. This primarily uses the NameError and uses the rescue and begin functions and is used to assist in checking that no typos are found and to help the user understand
+I originally included an error handling feature for the command prompt which uses the 'begin' and 'rescue' features to check for NameError. This was because my initial idea was to get the user to type the commands ("north", "south" etc) themselves into the programme - and my NameError handling would pick up any typos and print the error back to them. However, in order to meet the assignment criteria of using four ruby gems in the programme, later on in development I chose to switch to using TTY Prompt which holds the users hand more and prevents them from making those mistakes. I've kept the error handling code in the nav.rb file in case I decide to go continue developing the code at a later stage and switch back to my original plan.
 
 ## Code Structure
 

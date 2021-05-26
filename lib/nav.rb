@@ -75,7 +75,7 @@ module Ror
       new_line
     end
     
-    # Prints a new line. Optimally can print multiple lines.
+    # Prints a new line.
     def new_line(times = 1)
       times.times do
         print "\n"
@@ -86,14 +86,6 @@ module Ror
     def not_found
       print "Command not understood. Please try again.".red
       new_line
-    end
-     
-    def cannot_travel_combat
-      puts "You are in combat and cannot travel!"
-    end
-    
-    def not_in_combat
-      puts "You are not in combat."
     end
 
     def ending
@@ -120,6 +112,12 @@ module Ror
       new_line
     end
       
+    begin
+      get_cmd["prompt"]
+    rescue NameError => e
+      puts e
+    end
+
     # TTY prompt method
     def get_cmd
       prompt = TTY::Prompt.new

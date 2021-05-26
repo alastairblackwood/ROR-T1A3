@@ -2,7 +2,7 @@ require_relative '../ROR-T1A3/lib/story.rb'
 
 describe 'Ror' do
     it 'should run through story array in sequential order and print them off until it gets to the end' do
-        expect(Ror[0]).to all(be_a(String))
+        expect(Ror).to all(be_a(String))
     end
 end
         # expect(array_to_test[1]).to all(be_a(String))
