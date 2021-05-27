@@ -66,20 +66,21 @@ Errors will be handled by the application by
 
 # R9 Develop implementation plan: - outlines how each feature will be implemented and a checklist of tasks for each feature
 
+I chose to use Trello for the designing and planning stage of the application so I could visually see and be reminded of what tasks I needed to do and set some mental deadlines for when I would like to to have certain tasks completed by.
+
+I only began to discover the custom fields to estimate how long the task would take as well as priority labels towards the end of the project, but will be utilizing them more heavily in the future.
+
+Below are some examples of my Trello board at different points in the app development. To access my public Trello board for this project please visit: https://trello.com/b/3WqKok4u/t1w8-ruby-terminal
+
 ![Intro](img/trello.png)
 
-I chose to use Trello for the designing and planning stage of the application and set some deadlines for when I would like to to have a task completed by and to move on the next task.
-
-- prioritise the implementation of different features, or checklist items within a feature
-- provide a deadline, duration or other time indicator for each feature or checklist/checklist-item
-
-> Your checklists for each feature should have at least 5 items.
+![Intro](img/trello2.png)
 
 # R10 Instructions for Installation and Use
 
-You will need ruby installed on your computer. Download ruby here.
+You will need ruby installed on your computer. Download ruby here https://www.ruby-lang.org/en/ .
 You will also need the Bundler gem installed. It comes with the main ruby installation, but if you do not have it on your machine, you can install it with the following command:
-gem install bundler. The Ranger Or Redoc requires the following Ruby Gems to run:
+gem install bundler. The Ranger Of Redoc requires the following Ruby Gems to run:
 
 TTY Box
 TTY Prompt
@@ -95,10 +96,11 @@ https://github.com/alastairblackwood/ROR-T1A3
 to your local computer.
 To install the gem(s) required, navigate to the location of the /src folder in repository on your computer, and use the command:
 
-bundle install
+    bundle install
 
 Run the app with:
-ruby main.rb
+
+    ruby main.rb
 
 System/hardware requirements: Intel Mac running OSX 10.12+ (and above).
 
