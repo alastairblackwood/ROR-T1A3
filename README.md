@@ -64,9 +64,13 @@ I only began to discover the custom fields to estimate how long the task would t
 
 Below are some examples of my Trello board at different points in the app development. To access my public Trello board for this project please visit: https://trello.com/b/3WqKok4u/t1w8-ruby-terminal
 
+One
+
 ![Intro](img/trello.png)
 
-![Intro](img/trello2.png)
+Two
+
+![Intro](img/Trello2.png)
 
 # R10 Instructions for Installation and Use
 
