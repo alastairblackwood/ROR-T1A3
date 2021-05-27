@@ -26,19 +26,23 @@ A member of the target audience will use it by downloading the programme and sim
 
 # R6 Features List
 
-The app features the following
+The app contains the following features:
+
+- Main input loop using 'when' and 'else' statements that run the programme based on the users commands.
+- A module to contain the different classes.
+- Navigation class.
+- Methods within the Nav class that return help and command functions.
+- Story class that contains an array of stories that are accessed via the main input loop depending on what command the user gives.
+- \*\*Ascii art that is printed to the screen to provide visual context to the storylines.
+- An animation programme that prints the storyline out in a typewriter format.
 
 The programme utilizes a UI class and a Story class which stores a multitude of methods within in each one that get called upon to either 'return' or 'puts' the content back in the main input loop. These include a help method that outputs the navigation commands to the user.
 
-The first feature of the game uses the variable concept
-
-## Loops and conditional control
-
 The game features an input loop which is the heart of the programme and runs from the main.rb file. It uses 'when' and 'else' statements to run through the programme commands, and outputs the storyline and navigation content to the display. Once the story reaches it's conclusion - the conditional control structures 'if' and 'else are used so the loop will execute the 'running = nil' command and the programme will end.
 
-## Error handling
-
 I originally included an error handling feature for the command prompt which uses the 'begin' and 'rescue' features to check for NameError. This was because my initial idea was to get the user to type the commands ("north", "south" etc) themselves into the programme - and my NameError handling would pick up any typos and print the error back to them. However, in order to meet the assignment criteria of using four ruby gems in the programme, later on in development I chose to switch to using TTY Prompt which holds the users hand more and prevents them from making those mistakes. I've kept the error handling code in the nav.rb file in case I decide to go continue developing the code at a later stage and switch back to my original plan.
+
+\*\*Ascii art was sourced from the following website: https://www.asciiart.eu by a variety of artists.
 
 # R7 Outline Of the User Interaction and Experience for App
 
@@ -119,15 +123,24 @@ narrative.
 
 My final piece of code which is essential to the programme is my Story array. It is divided into the sections 'Story_Intro', 'Story_North', 'Story_South', 'Story_West', 'Story_East', 'Story_Player_Dead' and 'Story_Ending'. These output to the user depending on which path they've taken via the games main input loop.
 
+# Ethical Issues
+
+I used Ascii art in my programme but found it difficult to know how to properly attribute the art to the artist who spent the time creating them. This is of course and ethical issue as all artists should receive proper credit for their work so it is something I need to be more considerate of in the future.
+
 # R17 Design TWO tests:
 
-Each test should:
+I was sadly unable to design two functional tests for my programme. I attempted to write one below to test my ask method (nav.rb) to check the given user input - to return true or false - however I ran out of time to execute it properly. This will be an area I will look at in greater detail and ensure I undertand how to implement it properly moving forward.
 
-- cover a different feature of the application
-- state what is being tested
-- provide at least TWO test cases and the expected results for each test case
+    require_relative '../ROR-T1A3/lib/nav.rb'
 
-> An outline of the testing procedure and cases should be included with the source code of the application
+    describe 'ask method' do
+      it 'should check the input given to the    ask method' do
+        # result should be true or false
+        result = ask("Is this a question", true, )
+        # Expect your input to be true if it passes the filter or expect your input to be false if it does not pass
+        expect(result).to be(true)
+      end
+    end
 
 # R19 Utilise developer tools to facilitate the execution of the application:
 
