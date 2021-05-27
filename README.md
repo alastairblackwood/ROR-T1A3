@@ -1,4 +1,4 @@
-# ROR-T1A3
+# T1A3 - Terminal Application - Alastair Blackwood
 
 Source control repository can be found here: https://github.com/alastairblackwood/ROR-T1A3
 
@@ -112,7 +112,12 @@ The main input loop primarily uses 'when' statements to determine which output t
 
 The 'clear' method is important as it clears the screen at the start of the programme and outputs the game title in an ascii format - setting the tone.
 
-The 'help' method is where the list of commands the user can use throughout the game are printed out to the screen
+The 'help' method is where the list of commands the user can use throughout the game are printed out to the screen.
+
+The 'get_cmd' method - while initially taking user input (typing of commands) uses TTY Prompt and is essential for the game to function and interact with. It gives the user the option to select 'North', 'South', 'East' and 'West', 'Help', 'Attack' and 'Quit' - with each one outputting a unique
+narrative.
+
+My final piece of code which is essential to the programme is my Story array. It is divided into the sections 'Story_Intro', 'Story_North', 'Story_South', 'Story_West', 'Story_East', 'Story_Player_Dead' and 'Story_Ending'. These output to the user depending on which path they've taken via the games main input loop.
 
 # R17 Design TWO tests:
 
@@ -126,7 +131,7 @@ Each test should:
 
 # R19 Utilise developer tools to facilitate the execution of the application:
 
-Fork or clone this repository:
+To run 'The Raider Of Redoc' fork or clone this repository:
 
 https://github.com/alastairblackwood/ROR-T1A3
 

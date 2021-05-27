@@ -111,12 +111,6 @@ module Ror
       welcome
       new_line
     end
-      
-    begin
-      get_cmd["prompt"]
-    rescue NameError => e
-      puts e
-    end
 
     # TTY prompt method
     def get_cmd
