@@ -24,9 +24,9 @@ The target audience is for video gamers of a similar demographic to me (mid 30s 
 
 A member of the target audience will use it by downloading the programme and simply have fun playing it.
 
-# R6 Three Features
+# R6 Features List
 
-## Variables concept of variable scope
+The app features the following
 
 The programme utilizes a UI class and a Story class which stores a multitude of methods within in each one that get called upon to either 'return' or 'puts' the content back in the main input loop. These include a help method that outputs the navigation commands to the user.
 
@@ -40,25 +40,13 @@ The game features an input loop which is the heart of the programme and runs fro
 
 I originally included an error handling feature for the command prompt which uses the 'begin' and 'rescue' features to check for NameError. This was because my initial idea was to get the user to type the commands ("north", "south" etc) themselves into the programme - and my NameError handling would pick up any typos and print the error back to them. However, in order to meet the assignment criteria of using four ruby gems in the programme, later on in development I chose to switch to using TTY Prompt which holds the users hand more and prevents them from making those mistakes. I've kept the error handling code in the nav.rb file in case I decide to go continue developing the code at a later stage and switch back to my original plan.
 
-## Code Structure
-
-main.rb is the primary code file that controls the flow of the program.
-
-story.rb holds the Story module that contains each separate game narrative in arrays. These are returned via Methods back to the main input loop.
-
-nav.rb holds the navigation and other game function methods inside it. The clear, welcome, help, new line, def not found, end, quit and get command methods can all be called upon in main.rb from here.
-
-ascii.rb holds the ascii art images that take place to offer visual representation of the storyline events for the user and trigger depending on what section of the story the user navigates to. These are called into the input loop via methods.
-
-anim.rb is a typewriter animation effect that outputs the text from the story arrays in a typed format. I used this to slow the journey of the game down and enable the user to become a little more immersed in the storyline.
-
 # R7 Outline Of the User Interaction and Experience for App
 
-I would like to add some documentation that explains the navigation commands, however, I have also included that within the programme itself when the user selects (TTY Prompt) or types 'help'.
+My guess is that users will choose to interact with the app from a casual perspective, as it's designed for light entertainment and mild problem solving.
 
-The commands are very minimal / simple so it would be very difficult to not interact with it easily. The user will probably take great interest in the story and want to explore the different outcomes depending on which direction they take until they have explored the world thoroughly and exhausted all the options.
+The commands are currently very minimal and are explained when the user selects the 'help' command. My hope is that the user will be drawn in to the story and want to explore the different scenarios and outcomes depending on the choices they make. The program will enable them to keep going until they have explored the world thoroughly (their character potentially dying along the way) and exhausted all the options.
 
-Errors will be handled by the application by
+Errors will be handled by the application using 'begin' and 'rescue' functions that will primarily pick up NameErrors that output the problem back to the user on screen. This is most likely to occur through the user entering a typo which the programme doesn't recognise - however this problem has largely been resolved by using TTY Prompt for now.
 
 # R8 Control Flow Diagram
 
@@ -104,6 +92,28 @@ Run the app with:
 
 System/hardware requirements: Intel Mac running OSX 10.12+ (and above).
 
+# R11 Overview / Code Structure
+
+main.rb is the primary code file that controls the flow of the program.
+
+story.rb holds the Story module that contains each separate game narrative in arrays. These are returned via Methods back to the main input loop.
+
+nav.rb holds the navigation and other game function methods inside it. The clear, welcome, help, new line, def not found, end, quit and get command methods can all be called upon in main.rb from here.
+
+ascii.rb holds the ascii art images that take place to offer visual representation of the storyline events for the user and trigger depending on what section of the story the user navigates to. These are called into the input loop via methods.
+
+anim.rb is a typewriter animation effect that outputs the text from the story arrays in a typed format. I used this to slow the journey of the game down and enable the user to become a little more immersed in the storyline.
+
+# R12 Code Overview
+
+The most important parts of my code are: my main input loop (found in main.rb), my nav UI class containing the methods, 'clear', 'help', 'get_cmd' (found in nav.rb) and my story module which contains the story array.
+
+The main input loop primarily uses 'when' statements to determine which output the story array will draw from. These are taken from the 'get_cmd' method found in the UI class which uses TTY Prompt to allow the user to select the actions available to them within the game. If the user selects 'quit' or gets to the end of the game, the main input loop will jump to 'running = nil' and the programme will end. Using an 'else' statement, if anything other than the specific commands are entered, it will output 'Command not understood, please try again'.
+
+The 'clear' method is important as it clears the screen at the start of the programme and outputs the game title in an ascii format - setting the tone.
+
+The 'help' method is where the list of commands the user can use throughout the game are printed out to the screen
+
 # R17 Design TWO tests:
 
 Each test should:
@@ -116,10 +126,14 @@ Each test should:
 
 # R19 Utilise developer tools to facilitate the execution of the application:
 
-For example,
+Fork or clone this repository:
 
-- writing a script which turns the application into an executable; OR
-- packaging the application for use as a module or dependency
-  instructions for Installation and Use
+https://github.com/alastairblackwood/ROR-T1A3
 
-Using the Ruby gem 'Ocra'
+To execute the programme, please navigate to the folder
+
+    'ROR-T1A3'
+
+and type the following into terminal:
+
+    ./run_ror.sh
