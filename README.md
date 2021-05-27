@@ -64,11 +64,7 @@ I only began to discover the custom fields to estimate how long the task would t
 
 Below are some examples of my Trello board at different points in the app development. To access my public Trello board for this project please visit: https://trello.com/b/3WqKok4u/t1w8-ruby-terminal
 
-One
-
 ![Intro](img/trello.png)
-
-Two
 
 ![Intro](img/Trello2.png)
 
@@ -129,11 +125,11 @@ My final piece of code which is essential to the programme is my Story array. It
 
 # Ethical Issues
 
-I used Ascii art in my programme but found it difficult to know how to properly attribute the art to the artist who spent the time creating them. This is of course and ethical issue as all artists should receive proper credit for their work so it is something I need to be more considerate of in the future.
+I used Ascii art in my programme but found it difficult to know how to properly attribute the art to the artist who spent the time creating them. This is of course an ethical issue as all artists should receive proper credit for their work so it is something I need to be more considerate of in the future.
 
 # R17 Design TWO tests:
 
-I was sadly unable to design two functional tests for my programme. I attempted to write one below to test my ask method (nav.rb) to check the given user input - to return true or false - however I ran out of time to execute it properly. This will be an area I will look at in greater detail and ensure I undertand how to implement it properly moving forward.
+I was sadly unable to design two functional tests for my programme. I attempted to write one below to test my ask method (nav.rb) to check the given user input - to return true or false - however I ran out of time to execute it properly. This will be an area I will look at in greater detail and ensure I understand how to implement it properly moving forward.
 
     require_relative '../ROR-T1A3/lib/nav.rb'
 
